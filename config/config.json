@@ -1,0 +1,12 @@
+{
+  "app_details": {
+    "appName": "code-kata",
+    "version": "1.0.0"
+  },
+  "http_client_settings": {
+    "timeOutInSecs": 30
+  },
+  "todo_api_details": {
+    "url": "https://jsonplaceholder.typicode.com/todos"
+  }
+}
