@@ -35,12 +35,8 @@ func (h httpRequestHandler) Get(url string, repsonseModel interface{}) (err erro
 
 func (h httpRequestHandler) makeRequest(method string, url string, reponseModel interface{}, requestBodyBytes []byte) (err error) {
 
-	httpRequest, err := http.NewRequest(method, url, bytes.NewBuffer(requestBodyBytes))
+	httpRequest, _ := http.NewRequest(method, url, bytes.NewBuffer(requestBodyBytes))
 
-	if err != nil {
-		log.Error("Error while building request ", err)
-		return
-	}
 	httpRequest.Header.Set("Content-Type", "application/json")
 
 	res, err := h.httpClient.Do(httpRequest)
