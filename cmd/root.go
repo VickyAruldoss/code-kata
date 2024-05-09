@@ -14,17 +14,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type Root interface {
-	Execute()
-}
-type root struct {
-	config configuration.Config
-}
-
-func NewRoot(config configuration.Config) Root {
-	return root{config}
-}
-
 var rootCmd = &cobra.Command{
 	Use:   "code-kata",
 	Short: "command line tool for TODO's",
@@ -39,7 +28,7 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-func (r root) Execute() {
+func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatal(err)
 		os.Exit(1)

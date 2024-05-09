@@ -26,6 +26,7 @@ func NewTodoService(httpRequestHandler client.HttpRequestHandler, config c.Confi
 }
 
 func (service todoService) Get(limit int, even bool) (todos []model.Todo, err error) {
+	logger.Info("Please wait...")
 	for i := 1; len(todos) < limit; i++ {
 		var todo model.Todo
 		url := fmt.Sprintf("%s/%d", service.config.TodoApiDetails.Url, i)
